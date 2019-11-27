@@ -1,0 +1,65 @@
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- need_help
+- symptom
+- all
+- end
+slots:
+  symptom_list:
+    type: list
+templates:
+  ask:
+  - text: Okay
+  ask_new:
+  - text: Please enter the symptom you have
+  utter_help:
+  - text: Please enter your symptoms
+  utter_solution:
+  - image: https://cdn.dribbble.com/users/1044993/screenshots/6403343/carebot-dribbble.png
+    text: 'Our Diagnosis: Asthma. Suggested Drug: Bronchodilator'
+  utter_greet:
+  - text: Hello user! How are you feeling?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_alternative:
+  - text: Can you tell us what other symptom you have?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_sorry:
+  - text: Sorry we couldn't help.
+  utter_ask:
+  - text: Do you have this symptom?
+    buttons:
+    - title: yes
+      payload: /symptom
+    - title: no
+      payload: /all
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_help
+- utter_sorry
+- utter_ask
+- utter_solution
+- ask
+- ask_new
+- action_handle_symptom
+- utter_alternative
+- action_diagnosis

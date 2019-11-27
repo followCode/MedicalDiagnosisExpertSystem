@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Thank you",
+    "intent": "end",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.24034421145915985
+    }
+  },
+  {
+    "text": "unhappy",
+    "intent": "symptom",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5099434852600098
+    }
+  }
+]
