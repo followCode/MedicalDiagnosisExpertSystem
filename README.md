@@ -9,6 +9,12 @@ Using a chatbot was only trivial as it serves as the best approach to interact w
 ```bash
 $ pip install -r requirements.txt
 ```
+
+- Install Rasa-X
+```bash
+$ pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
+```
+
 - Download spacy base
 
 ```bash
