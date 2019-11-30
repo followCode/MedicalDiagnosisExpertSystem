@@ -35,6 +35,8 @@ from helper import Diagnosis
 dObj = Diagnosis()
 dObj.train()
 
+suggested_so_far = []
+
 class ActionHandleSymptom(Action):
 
     def name(self) -> Text:
@@ -68,8 +70,10 @@ class ActionHandleSymptom(Action):
         clean_syms=[]
 
         for symp in suggested_symptom:
-            if symp not in syms:
+            if symp not in syms and symp not in suggested_so_far:
                 clean_syms.append(symp)
+            else:
+                suggested_so_far.append(symp)
 
         if(len(clean_syms)>0):
             num = random.randrange(0,len(clean_syms))
@@ -82,7 +86,6 @@ class ActionHandleSymptom(Action):
 
         # Send message
         dispatcher.utter_message("You said you have: "+message)
-        dispatcher.utter_message("Symptoms so far: "+str(syms))
         dispatcher.utter_button_message("Do you also have "+clean_syms[num]+"?", buttons)
 
         return [SlotSet("symptom_list", syms)]
@@ -100,12 +103,19 @@ class ActionDiagnosis(Action):
         # Get diagnosis
         diag = dObj.predict(syms)
 
+        print(diag)
+
         # Send message
         dispatcher.utter_message("Our Diagnosis: "+str(diag[0]))
         dispatcher.utter_message("Suggested medication:")
-        dispatcher.utter_message(str(diag[1]))
+        for d in str(diag[1]).split(","):
+            dispatcher.utter_message(str(d))
+            dispatcher.utter_message("["+str(d)+"](https://www.1mg.com/search/all?name="+(str(diag[1]).split(',')[0])+")")
 
-        return [SlotSet("symptom_list", syms)]
+        dispatcher.utter_message("Suggested Doctor: ")
+        dispatcher.utter_message("[Go here](https://www.practo.com/search/findDoc?name="+diag[0]+")")
+
+        return []
 
 
         

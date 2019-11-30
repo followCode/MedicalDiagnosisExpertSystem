@@ -1,15 +1,26 @@
 intents:
-- greet
-- goodbye
-- affirm
-- deny
-- mood_great
-- mood_unhappy
-- bot_challenge
-- need_help
-- symptom
-- all
-- end
+- greet:
+    triggers: utter_greet
+- goodbye:
+    triggers: utter_happy
+- affirm:
+    triggers: ask
+- deny:
+    triggers: utter_alternative
+- mood_great:
+    triggers: utter_happy
+- mood_unhappy:
+    triggers: utter_help
+- bot_challenge:
+    triggers: utter_ask
+- symptom:
+    use_entities: []
+    triggers: action_handle_symptom
+- all:
+    use_entities: []
+- end:
+    use_entities: []
+    triggers: action_diagnosis
 slots:
   symptom_list:
     type: list

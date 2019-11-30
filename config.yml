@@ -1,6 +1,6 @@
 language: en
 pipeline: supervised_embeddings
 policies:
-- name: MemoizationPolicy
-- name: KerasPolicy
 - name: MappingPolicy
+- name: KerasPolicy
+  max_history: 0
