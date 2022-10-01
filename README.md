@@ -8,7 +8,7 @@ the user without consulting a trained physician is at the users own discretion. 
 
 ### Goal of project
 To be able to build a simple expert system which provides medical diagnosis for common ailments.
-Using a chatbot was only trivial as it serves as the best approach to interact with users in the current age of the Internet.
+This expert system allows us to handle user input through a chatbot type interface. It takes the symptoms from the user interactively and uses that for predicting the diseases.
 
 ### Setup
 - Install the requirements:
